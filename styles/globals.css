@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  body{
+    @apply bg-[#141414] text-white !scrollbar !scrollbar-track-transparent !scrollbar-thumb-transparent
+  }
+
+  header{
+    @apply fixed top-0 z-50 items-center justify-between p-4 transition-all lg:px-10 lg:py-6 w-full;
+  }
+}
+
+/* Header Style */
+@layer components{
+  .headerLink {
+    @apply cursor-pointer  font-light text-white transition duration-300 hover:text-[#b3b3b3];
+  }
+
+  .max-line{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .bannerButton {
+    @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-base
+  }
+}
