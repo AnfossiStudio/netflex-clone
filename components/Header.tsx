@@ -1,11 +1,17 @@
-import Link from 'next/link'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import {HiSearch} from 'react-icons/hi'
 import {IoNotificationsOutline} from 'react-icons/io5'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import useAuth from '../hooks/useAuth'
+
+const alertModal = withReactContent(Swal)
+
 
 const Header = () => { 
   const [isScollded , setIsScrolled] = useState(false)
+  const {logout} = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,9 +53,20 @@ const Header = () => {
         <div className='flex items-center space-x-4 text-sm'>
           <HiSearch className="h-6 w-6" />
           <IoNotificationsOutline className="h-6 w-6" />
-          <Link href="/account">
-            <img src='https://randomuser.me/api/portraits/women/44.jpg' className='cursor-pointer rounded w-8 h-8' />
-          </Link>
+            <img onClick={() => {
+              alertModal.fire({
+                    title: 'Are you sure want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                                      logout()
+                    }
+                  })
+            }} src='https://randomuser.me/api/portraits/women/44.jpg' className='cursor-pointer rounded w-8 h-8' />
         </div>
       </div>
     </header>
