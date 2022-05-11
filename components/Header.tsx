@@ -61,9 +61,9 @@ const Header = () => {
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes'
-                  }).then((result) => {
+                  }).then((result) => { 
                     if (result.isConfirmed) {
-                                      logout()
+                        logout()
                     }
                   })
             }} src='https://randomuser.me/api/portraits/women/44.jpg' className='cursor-pointer rounded w-8 h-8' />

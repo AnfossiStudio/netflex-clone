@@ -16,15 +16,15 @@ const Banner = ({netflixOriginals} : Props) => {
     setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
   }, []);
   return (
-    <div className="flex flex-col space-y-2md:space-y-4 lg:h-[75vh] lg:justify-end relative">
+    <div className="flex flex-col space-y-2md:space-y-4 lg:h-[75vh] lg:justify-end relative pt-10 md:pt-0">
       <div className="absolute top-0 left-0 h-screen w-full">
         <Image objectFit="cover" layout="fill" src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}/>
       </div>
       <div className="h-screen absolute w-full top-0 left-0 bg-gradient-to-b z-20">
 
       </div>
-      <div className="z-30 p-16 ">
-        <h1 className="text-2xl lg:text-7xl md:text-4xl font-bold mb-10 max-w-[50%]">
+      <div className="z-30 py-16  px-4 md:p-16 ">
+        <h1 className="text-3xl lg:text-7xl md:text-4xl font-bold mb-4  md:mb-10 max-w-[80%]  lg:max-w-[50%]">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
       <p className="max-w-xs text-sm md:max-w-lg md:text-lg lg:max-w-2xl lg:2xl max-line">{movie?.overview}</p>
